@@ -5,7 +5,7 @@
       @dragover.prevent="dragOver = true"
       @dragleave="dragOver = false"
       @drop.prevent="handleDrop($event)"
-      :class="{ 'border-blue-400 bg-blue-50': dragOver }"
+      :class="{ 'border-red-400 bg-red-50': dragOver }"
       class="border-2 border-dashed border-gray-300 rounded-lg p-5 text-center cursor-pointer transition-all duration-200"
     >
       <input
@@ -16,7 +16,7 @@
         class="hidden"
       />
       <div class="flex flex-col items-center justify-center space-y-3 py-4">
-        <i class="fas fa-cloud-upload-alt text-3xl text-blue-500"></i>
+        <i class="fas fa-cloud-upload-alt text-3xl text-red-500"></i>
         <p class="text-gray-700 font-medium">
           Clique ou arraste o arquivo modelo
         </p>
@@ -44,6 +44,12 @@ const triggerInput = () => {
 const handleFileUpload = (event: Event) => {
   const target = event.target as HTMLInputElement;
   const file = target.files?.[0];
+
+  // Resetar o input para permitir selecionar o mesmo arquivo novamente
+  if (fileInput.value) {
+    fileInput.value.value = "";
+  }
+
   if (!file) return;
 
   // Validação de tipo de arquivo
@@ -72,4 +78,17 @@ const handleDrop = (event: DragEvent) => {
   error.value = "";
   emit("fileUploaded", file);
 };
+
+// Expõe método para limpar o input externamente
+const clearInput = () => {
+  if (fileInput.value) {
+    fileInput.value.value = "";
+  }
+  error.value = "";
+};
+
+// Expõe métodos para serem usados pelo componente pai
+defineExpose({
+  clearInput,
+});
 </script>
