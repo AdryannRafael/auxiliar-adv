@@ -2,7 +2,8 @@ import axios, { type AxiosProgressEvent } from "axios";
 
 // Configuração base do axios
 const api = axios.create({
-  baseURL: "http://localhost:8080", // Altere para a URL do seu backend
+  baseURL: "https://julius.adryannrafael.online/docx-server", // Altere para a URL do seu backend
+  // baseURL: "http://localhost:8080", // Altere para a URL do seu backend
   timeout: 30000, // 30 segundos timeout para uploads
 });
 

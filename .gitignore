@@ -11,6 +11,7 @@ node_modules
 .DS_Store
 dist
 auxiliar-adv
+ilove-adv
 dist-ssr
 coverage
 *.local

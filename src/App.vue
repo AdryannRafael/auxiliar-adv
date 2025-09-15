@@ -1,22 +1,24 @@
 <template>
   <div class="min-h-screen bg-gray-50 flex flex-col">
     <!-- Cabeçalho -->
-    <header class="bg-red-600 shadow-sm">
+    <header class="bg-fuchsia-600 shadow-sm">
       <div class="container mx-auto px-4 py-4">
         <div class="flex items-center justify-between">
           <div class="flex items-center space-x-2">
             <i class="fas fa-scale-balanced text-white text-2xl"></i>
-            <h1 class="text-xl font-bold text-white">Auxiliar de Adv</h1>
+            <h1 class="text-xl font-bold text-white">iLove Adv</h1>
           </div>
           <nav class="hidden md:flex space-x-6 items-center">
-            <a href="#" class="text-white hover:text-red-200">Início</a>
-            <a href="#" class="text-white hover:text-red-200">Ferramentas</a>
-            <a href="#" class="text-white hover:text-red-200">Sobre</a>
+            <a href="#" class="text-white hover:text-fuchsia-200">Início</a>
+            <a href="#" class="text-white hover:text-fuchsia-200"
+              >Ferramentas</a
+            >
+            <a href="#" class="text-white hover:text-fuchsia-200">Sobre</a>
           </nav>
           <div class="md:hidden flex items-center">
             <button
               @click="resetApp"
-              class="bg-white text-red-600 hover:bg-red-50 font-medium py-2 px-3 rounded-lg transition duration-200 mr-3"
+              class="bg-white text-bg-fuchsia-500 hover:bg-fuchsia-50 font-medium py-2 px-3 rounded-lg transition duration-200 mr-3"
               title="Limpar Tudo"
             >
               <i class="fas fa-broom"></i>
@@ -46,8 +48,8 @@
         <!-- Upload do Modelo -->
         <div class="bg-white rounded-xl shadow-md p-6">
           <div class="flex items-center mb-5">
-            <div class="bg-red-100 p-2 rounded-lg mr-3">
-              <i class="fas fa-clipboard-list text-red-600 text-xl"></i>
+            <div class="bg-fuchsia-100 p-2 rounded-lg mr-3">
+              <i class="fas fa-clipboard-list text-bg-fuchsia-500 text-xl"></i>
             </div>
             <h3 class="text-lg font-semibold text-gray-800">Modelo da RPV's</h3>
           </div>
@@ -62,14 +64,14 @@
               </h4>
               <button
                 @click="removeModelFile"
-                class="text-red-500 text-sm hover:text-red-700"
+                class="text-fuchsia-500 text-sm hover:text-fuchsia-700"
               >
                 Remover
               </button>
             </div>
-            <div class="flex items-center bg-red-50 rounded-lg p-3">
+            <div class="flex items-center bg-fuchsia-50 rounded-lg p-3">
               <div class="bg-white p-2 rounded-lg mr-3 shadow-sm">
-                <i class="fas fa-file-word text-red-600"></i>
+                <i class="fas fa-file-word text-bg-fuchsia-500"></i>
               </div>
               <div class="truncate">
                 <p class="font-medium text-gray-800 text-sm truncate">
@@ -86,8 +88,8 @@
         <!-- Upload Múltiplo -->
         <div class="bg-white rounded-xl shadow-md p-6">
           <div class="flex items-center mb-5">
-            <div class="bg-red-100 p-2 rounded-lg mr-3">
-              <i class="fas fa-copy text-red-600 text-xl"></i>
+            <div class="bg-fuchsia-100 p-2 rounded-lg mr-3">
+              <i class="fas fa-copy text-bg-fuchsia-500 text-xl"></i>
             </div>
             <h3 class="text-lg font-semibold text-gray-800">
               Lista de Documentos
@@ -104,7 +106,7 @@
               </h4>
               <button
                 @click="clearAllFiles"
-                class="text-red-500 text-sm hover:text-red-700"
+                class="text-fuchsia-500 text-sm hover:text-fuchsia-700"
               >
                 Remover todos
               </button>
@@ -120,7 +122,7 @@
                   <div
                     class="bg-white p-2 rounded-lg mr-3 flex-shrink-0 shadow-sm"
                   >
-                    <i class="fas fa-file-word text-red-600"></i>
+                    <i class="fas fa-file-word text-bg-fuchsia-500"></i>
                   </div>
                   <div class="truncate">
                     <p class="font-medium text-gray-800 text-sm truncate">
@@ -133,7 +135,7 @@
                 </div>
                 <button
                   @click="removeFile(index)"
-                  class="text-red-500 hover:text-red-700 flex-shrink-0 ml-2"
+                  class="text-fuchsia-500 hover:text-fuchsia-700 flex-shrink-0 ml-2"
                 >
                   <i class="fas fa-times"></i>
                 </button>
@@ -151,7 +153,7 @@
           </h3>
           <div class="w-full bg-gray-200 rounded-full h-2.5">
             <div
-              class="bg-red-600 h-2.5 rounded-full transition-all duration-300"
+              class="bg-bg-fuchsia-500 h-2.5 rounded-full transition-all duration-300"
               :style="{ width: uploadState.progress + '%' }"
             ></div>
           </div>
@@ -163,17 +165,17 @@
 
       <!-- Mensagem de Erro -->
       <div v-if="uploadState.error" class="max-w-2xl mx-auto mt-8">
-        <div class="bg-red-50 border border-red-200 rounded-xl p-6">
+        <div class="bg-fuchsia-50 border border-fuchsia-200 rounded-xl p-6">
           <div class="flex items-center mb-3">
-            <i class="fas fa-exclamation-circle text-red-600 mr-2"></i>
-            <h3 class="text-lg font-semibold text-red-800">
+            <i class="fas fa-exclamation-circle text-bg-fuchsia-500 mr-2"></i>
+            <h3 class="text-lg font-semibold text-fuchsia-800">
               Erro no processamento
             </h3>
           </div>
-          <p class="text-red-700">{{ uploadState.error }}</p>
+          <p class="text-fuchsia-700">{{ uploadState.error }}</p>
           <button
             @click="uploadState.error = null"
-            class="mt-4 bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-lg transition"
+            class="mt-4 bg-bg-fuchsia-500 hover:bg-fuchsia-700 text-white font-medium py-2 px-4 rounded-lg transition"
           >
             Entendido
           </button>
@@ -198,7 +200,7 @@
             'opacity-50 cursor-not-allowed':
               files.length === 0 || !modelFile || uploadState.isUploading,
           }"
-          class="bg-red-600 hover:bg-red-700 text-white font-medium py-3 px-8 rounded-lg transition duration-200 inline-flex items-center"
+          class="bg-bg-fuchsia-500 hover:bg-fuchsia-700 text-white font-medium py-3 px-8 rounded-lg transition duration-200 inline-flex items-center"
         >
           <i class="fas fa-file-arrow-down mr-2"></i>
           {{ uploadState.isUploading ? "Processando..." : "Gerar RPV's" }}
@@ -210,13 +212,18 @@
     <footer class="bg-white border-t mt-10">
       <div class="container mx-auto px-4 py-6">
         <div class="flex flex-col md:flex-row justify-between items-center">
-          <div class="flex items-center mb-4 md:mb-0">
-            <i class="fas fa-file-word text-red-600 text-xl mr-2"></i>
-            <span class="text-gray-700 font-medium">Auxiliar de Adv</span>
+          <div
+            class="flex items-center text-white mb-4 md:mb-0 bg-fuchsia-500 p-2 rounded-xl"
+          >
+            <i
+              class="fas fa-scale-balanced text-bg-fuchsia-500 text-xl mr-2"
+            ></i>
+            <span class="text-white text-bold font-medium">iLove Adv</span>
           </div>
           <div class="text-gray-600 text-sm">
-            &copy; 2025 Auxiliar de Adv. Todos os direitos reservados. Feito com
-            carinho pra <span class="text-red-600">Elaynne de Cassia</span>
+            &copy; 2025 iLove Adv. Todos os direitos reservados. Feito com
+            carinho pra
+            <span class="text-bg-fuchsia-500">Elaynne de Cassia</span>
           </div>
         </div>
       </div>
