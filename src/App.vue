@@ -200,7 +200,7 @@
             'opacity-50 cursor-not-allowed':
               files.length === 0 || !modelFile || uploadState.isUploading,
           }"
-          class="bg-bg-fuchsia-500 hover:bg-fuchsia-700 text-white font-medium py-3 px-8 rounded-lg transition duration-200 inline-flex items-center"
+          class="bg-fuchsia-500 hover:bg-fuchsia-700 text-white font-medium py-3 px-8 rounded-lg transition duration-200 inline-flex items-center"
         >
           <i class="fas fa-file-arrow-down mr-2"></i>
           {{ uploadState.isUploading ? "Processando..." : "Gerar RPV's" }}
